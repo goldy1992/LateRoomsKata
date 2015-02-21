@@ -5,22 +5,22 @@
  */
 functionsTest = TestCase("functionsTest");
 
-functionsTest.prototype.dispDataEmptyString = function()
+functionsTest.prototype.testDispDataEmptyString = function()
 {
     assertEquals("", displayData(""));
 };
 
-functionsTest.prototype.dispDataNoneString = function()
+functionsTest.prototype.testDispDataNoneString = function()
 {
     assertEquals("", displayData(55));
 };
 
-functionsTest.prototype.dispDataIncorrectStringString = function()
+functionsTest.prototype.testDispDataIncorrectStringString = function()
 {
     assertEquals("", displayData("fsdfsdf"));
 };
 
-functionsTest.prototype.dispDataReturnsSomethingWithRealData = function()
+functionsTest.prototype.testDispDataReturnsSomethingWithRealData = function()
 {
     assertNotEquals("", displayData(hotels));
 };

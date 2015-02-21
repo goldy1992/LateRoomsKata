@@ -7,6 +7,8 @@
 
 function displayData(hotels) 
 {
+    if (typeof hotels != [])
+        return "";
     var arrayOfResults = new Array();
     
     for(i = 0; i < hotels.length; i++)
