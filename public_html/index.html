@@ -6,11 +6,21 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Search Results</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="data.js"></script>
+        <script src="functions.js"></script>
+        <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        </style>
     </head>
     <body>
-        <div>TODO write content</div>
+        <script>
+        var data1 = displayData(hotels);
+        document.write(data1);
+        </script>
     </body>
 </html>
