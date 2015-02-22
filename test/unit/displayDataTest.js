@@ -3,24 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-functionsTest = TestCase("functionsTest");
+displayDataTest = TestCase("displayDataTest");
 
-functionsTest.prototype.testDispDataEmptyString = function()
+displayDataTest.prototype.testDispDataEmptyString = function ()
 {
     assertEquals("", displayData(""));
 };
 
-functionsTest.prototype.testDispDataNoneString = function()
+displayDataTest.prototype.testDispDataNoneString = function ()
 {
     assertEquals("", displayData(55));
 };
 
-functionsTest.prototype.testDispDataIncorrectStringString = function()
+displayDataTest.prototype.testDispDataIncorrectString = function ()
 {
     assertEquals("", displayData("fsdfsdf"));
 };
 
-functionsTest.prototype.testDispDataReturnsSomethingWithRealData = function()
+displayDataTest.prototype.testDispDataReturnsSomethingWithRealData = function ()
 {
     assertNotEquals("", displayData(hotels));
 };
