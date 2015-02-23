@@ -37,12 +37,19 @@ function displayData(hotels)
     
     for(i = 0; i < hotels.length; i++)
     {    
-        var stringToReturn = "<table align='top' >";
-        stringToReturn += "<tr><td>Name</td><td>" + hotels[i].Name + "</td></tr>"; 
-        stringToReturn += "<tr><td>Star Rating</td><td>" + hotels[i].StarRating + "</td></tr>";
+        var stringToReturn = "        <div class=\"panel panel-default\">";
+        stringToReturn += "<!-- Default panel contents -->";
+        stringToReturn += "<div class=\"panel-heading\"><h3>" + hotels[i].Name  + "</h3></div>";
+        stringToReturn += "<table class=\"table\" id=\"outputTable" + i + "\">";
+
+        stringToReturn += "<tr><td><h4>" + hotels[i].StarRating + "*</h4>";
+        
+        
+       
+        stringToReturn += " </td></tr>";
 
         var facilts = hotels[i].Facilities;
-        stringToReturn += "<tr><td>Facilities</td><td>";
+        stringToReturn += "<tr><td><h4>Facilities</h4></td><td>";
         
         // tests for empty array
         if (facilts === null || (typeof facilts === 'undefined'))
@@ -53,7 +60,8 @@ function displayData(hotels)
                 stringToReturn += facilts[j] + "<br>";
             stringToReturn += "</td></tr>";
         }
-        stringToReturn += "</table>";       
+   
+        stringToReturn += "</table></div>";
         arrayOfResults[i] = stringToReturn;
     } // for
        
@@ -93,3 +101,63 @@ function orderHotels(hotels, comparator)
     hotels.sort(comparator);
     return hotels;
 }
+
+function sortByName(hotels)
+{
+        var hotelsNameOrder = orderHotels(hotels, compareName);
+      
+        //var data1 = displayData(hotelsNameOrder);
+       
+        return hotels;
+}
+
+function sortByRating(hotels)
+{
+
+    var hotelsRatingOrder = orderHotels(hotels, compareStarRating);        
+    var data1 = displayData(hotelsRatingOrder);
+    return hotels;
+    
+}
+
+function removeInadequate(currentHotels, type)
+{
+    if (!arrayIsHotels(currentHotels))
+        return null;
+    
+    for (i = 0; i < currentHotels.length; i++)
+    {
+        if (currentHotels[i].Facilities === null || currentHotels[i].Facilities === 'undefined')
+        {     currentHotels.splice(i, 1); i--;}
+        
+        else
+        {
+           var arr = currentHotels[i].Facilities; var contains = false;
+           
+           for (j = 0; j < arr.length; j++)
+               if (arr[j] === type)
+                   contains = true;
+           
+           if (!contains)
+           {     currentHotels.splice(i, 1); i--;}            
+        } // else
+    } // for
+    
+    return currentHotels;
+} // function
+
+function checkAndRemove(hotels)
+{
+    if (document.getElementById("carPark").checked === true)
+        hotels = removeInadequate(hotels, "car park");
+    
+    if (document.getElementById("gym").checked === true)
+        hotels = removeInadequate(hotels, "gym");
+    
+    if (document.getElementById("pool").checked === true)
+        hotels = removeInadequate(hotels, "pool");
+    
+    return hotels;
+}
+
+var currentSort = "name";

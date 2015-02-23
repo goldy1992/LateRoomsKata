@@ -12,7 +12,7 @@ arrayHotelsTest.prototype.testOriginalData = function ()
 
 arrayHotelsTest.prototype.testSortedData = function ()
 {
-            var hotelsNameOrder = orderByHotelName(hotels);
+            var hotelsNameOrder = orderHotels(hotels, sortByName());
     assertEquals(true, arrayIsHotels(hotelsNameOrder));
 };
 
