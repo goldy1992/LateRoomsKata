@@ -25,6 +25,8 @@ and open the template in the editor.
             function display(hotels)
             {
                 
+                // creates a copy of the object as java objects are passed by 
+                // reference. Not doing this step could mean losing data!!!
                 var data1 = JSON.parse(JSON.stringify(hotels));
                 if (currentSort === 'name')
                     data1 = sortByName(data1);

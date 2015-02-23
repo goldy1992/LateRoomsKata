@@ -7,12 +7,13 @@ arrayHotelsTest = TestCase("arrayHotelsTest");
 
 arrayHotelsTest.prototype.testOriginalData = function ()
 {
-    assertEquals(true, arrayIsHotels(hotels));
+    var x =  JSON.parse(JSON.stringify(hotels));
+    assertEquals(true, arrayIsHotels(x));
 };
 
 arrayHotelsTest.prototype.testSortedData = function ()
-{
-            var hotelsNameOrder = orderHotels(hotels, sortByName());
+{var x =  JSON.parse(JSON.stringify(hotels));
+            var hotelsNameOrder = orderHotels(x, sortByName);
     assertEquals(true, arrayIsHotels(hotelsNameOrder));
 };
 

@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// the method checks to see if the argument is a hotel object
 function isHotel(hotel)
 {
     return typeof(hotel) === "object" &&
@@ -11,6 +13,7 @@ function isHotel(hotel)
           hotel.hasOwnProperty("Facilities");
 }
 
+// makes sure the array is full of only hotel objects
 function arrayIsHotels(hotels)
 {
     if (hotels.length <= 0)
@@ -23,6 +26,7 @@ function arrayIsHotels(hotels)
     
     return returning;
 }
+
 
 /*
  * Takes an array of hotel objects and returns a HTML table representation of 
@@ -68,6 +72,7 @@ function displayData(hotels)
     return arrayOfResults;
 }
 
+// the comparison function for ordering hotels by name
 function compareName(hotel1, hotel2)
 {
     if(!isHotel(hotel1) || !isHotel(hotel2))
@@ -83,6 +88,7 @@ if ( name1 > name2 )
 return 0;
 }
 
+// the comparison function for ordering hotels by rating
 function compareStarRating(hotel1, hotel2)
 {
     if(!isHotel(hotel1) || !isHotel(hotel2))
@@ -94,10 +100,12 @@ function compareStarRating(hotel1, hotel2)
 return rating2 - rating1;
 }
 
-
-
+// the method to order the hotels
+// arg 1 is the array of hotels
+// arg 2 is the comparison function
 function orderHotels(hotels, comparator)
 {
+
     hotels.sort(comparator);
     return hotels;
 }
@@ -105,10 +113,9 @@ function orderHotels(hotels, comparator)
 function sortByName(hotels)
 {
         var hotelsNameOrder = orderHotels(hotels, compareName);
-      
-        //var data1 = displayData(hotelsNameOrder);
+
        
-        return hotels;
+        return hotelsNameOrder;
 }
 
 function sortByRating(hotels)
