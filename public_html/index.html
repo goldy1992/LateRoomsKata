@@ -34,6 +34,9 @@ and open the template in the editor.
                 data1 = checkAndRemove(data1);
                 
                 var data = displayData(data1);
+                
+                if (reverse)
+                    data = data.reverse();
                 document.getElementById("outputContent").innerHTML = data;
             }
         </script>
@@ -59,6 +62,7 @@ and open the template in the editor.
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+            <li onclick="reverse = !reverse ; display(hotels);"><a href="#">Reverse</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" >Sort By <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">

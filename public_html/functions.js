@@ -161,3 +161,4 @@ function checkAndRemove(hotels)
 }
 
 var currentSort = "name";
+var reverse = false;
